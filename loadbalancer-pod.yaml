@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: loadbalancer-testpod
+  labels:
+    app: loadbalancer
+spec:
+  containers:
+  - image: joey29/loadbalancer:v1.1
+    name: loadbalancer-container
+    ports:
+    - containerPort: 8000

@@ -1,0 +1,16 @@
+#kubectl expose pod loadbalancer-pod --type=NodePort --port=8000
+#kubectl expose pod loadbalancer-pod --type=NodePort --port= 8000 --name =fastapi-service --dry-run=client -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-testpod
+  labels:
+   app: loadbalancer
+spec:
+ type: NodePort
+ ports:
+ - port: 8000
+   protocol: TCP
+   targetPort: 8000
+ selector:
+  app: loadbalancer
